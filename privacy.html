@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据与隐私说明 · 粤匠备课平台</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b0443a'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23ffffff' font-family='Microsoft YaHei'%3E%E7%B2%A4%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/theme-ink.css">
+<link rel="stylesheet" href="assets/css/landing.css">
+</head>
+<body>
+
+<header class="topnav">
+  <a class="brand" href="index.html">
+    <span class="badge">粤</span>
+    <div><h1>粤匠备课平台</h1><small>广东非遗 · 劳动教育</small></div>
+  </a>
+  <nav class="links">
+    <a href="index.html#feature">平台特色</a>
+    <a href="app.html">开始备课</a>
+  </nav>
+</header>
+
+<main class="landing">
+  <h2 class="secTitle" style="margin-top:24px">数据与隐私说明</h2>
+  <p class="secSub">最后更新：2026-10-06</p>
+
+  <div class="fgrid" style="grid-template-columns:1fr;margin-top:16px">
+    <div class="fcard">
+      <h3>一、备课内容只存在您本机</h3>
+      <p>
+        您在平台里填写的<b>全部备课内容</b>（学情分析、教学目标、教学流程、任务单、评价量规、资料取证结论、教学反思等）
+        都保存在<b>您自己浏览器的本地存储（localStorage）</b>中，<b>不会上传到任何服务器</b>。
+        换电脑、换浏览器或清理浏览器数据会导致内容丢失，请用侧边栏的「⬆ 备份备课（.json）」自行备份。
+      </p>
+    </div>
+  </div>
+
+  <div class="fgrid" style="grid-template-columns:1fr;margin-top:16px">
+    <div class="fcard">
+      <h3>二、我们只收集匿名使用统计</h3>
+      <p>在您同意后，平台会收集以下几类<b>不含任何备课内容</b>的行为数据，用于决定下一步优先补充哪些非遗主题与功能：</p>
+      <ul>
+        <li><b>页面浏览</b>：哪个页面被打开</li>
+        <li><b>选题热度</b>：哪个非遗主题被选中（只记主题编号，不记您填写的任何文字）</li>
+        <li><b>步骤到达</b>：各备课步骤的到达情况，用于发现「大家卡在哪一步」</li>
+        <li><b>导出行为</b>：导出了教案 / 课件 / 任务单等（只记类型与次数）</li>
+        <li><b>取证进度</b>：取证台条目被回填的进度</li>
+      </ul>
+      <p style="margin-top:10px">
+        同时会生成一个<b>随机匿名编号</b>用于区分不同使用者，该编号<b>不含</b>姓名、手机号、IP、学校等任何身份信息。
+      </p>
+    </div>
+  </div>
+
+  <div class="fgrid" style="grid-template-columns:1fr;margin-top:16px">
+    <div class="fcard">
+      <h3>三、您的选择权</h3>
+      <ul>
+        <li>首次访问时底部会出现提示条，您可以选择<b>「同意并继续」</b>或<b>「仅本地使用」</b>。</li>
+        <li>选择「仅本地使用」后，平台<b>不会上报任何数据</b>，备课功能完全不受影响。</li>
+        <li>您可以随时改变主意：清除浏览器数据后重新打开平台，会再次出现选择提示条。</li>
+        <li>未做出选择前，事件只会暂存在本机，不会上报。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fgrid" style="grid-template-columns:1fr;margin-top:16px">
+    <div class="fcard">
+      <h3>四、第三方与部署</h3>
+      <p>
+        统计能力基于<b>腾讯云开发（CloudBase）</b>的匿名登录与云数据库。若运营方未开通云端环境，
+        平台将退化为纯本地模式，不产生任何网络上报。
+        检索与资料取证功能会跳转到中国非物质文化遗产网、广东省文化和旅游厅、国家中小学智慧教育平台等官方站点，
+        这些站点的数据处理遵循其各自的隐私政策。
+      </p>
+    </div>
+  </div>
+
+  <div class="fgrid" style="grid-template-columns:1fr;margin-top:16px">
+    <div class="fcard">
+      <h3>五、给学校与教研组的建议</h3>
+      <p>
+        若本校部署此平台并希望停用统计，可编辑 <code>assets/js/config.js</code>，
+        将 <code>cloudEnabled</code> 设为 <code>false</code> 即可完全关闭数据上报，
+        其余功能不受任何影响。
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer class="lfoot">
+  <a href="index.html">返回首页</a>　|　<a href="app.html">开始备课</a>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/cloud.js"></script>
+<script src="assets/js/telemetry.js"></script>
+<script src="assets/js/consent.js"></script>
+</body>
+</html>

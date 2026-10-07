@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="粤匠 · 广东非遗主题劳动备课平台：面向兼职劳动教师的非遗主题劳动课备课工具，覆盖选题、课标定位、目标撰写、安全预案、40 分钟教学流程、任务单、评价量规、资料取证台与一键导出教案 / 课件。">
+<meta name="keywords" content="广东非遗,劳动教育,备课平台,劳动课程标准,教学设计,粤绣,广彩,莞草编织,石湾陶塑">
+<meta name="theme-color" content="#b03a2e">
+<title>粤匠 · 广东非遗主题劳动备课平台</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b03a2e'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23ffffff' font-family='Microsoft YaHei'%3E%E7%B2%A4%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css?v=20261007">
+<link rel="stylesheet" href="assets/css/theme-ink.css?v=20261007">
+</head>
+<body>
+
+<noscript>
+  <div style="padding:16px;background:#fdecea;color:#b03a2e;text-align:center;font-size:14px">
+    本平台为纯前端应用，需要开启浏览器 JavaScript 才能使用。
+  </div>
+</noscript>
+
+<div class="wrap">
+
+<aside class="side">
+  <a class="backHome" href="index.html">← 返回首页</a>
+  <div class="logo">
+    <div class="badge">粤</div>
+    <div><h1>粤匠备课平台</h1><small>广东非遗 · 劳动教育</small></div>
+  </div>
+  <nav class="nav" id="nav">
+    <a href="#s1" class="on">① 选定非遗主题</a>
+    <a href="#s2">② 课标定位（自动）</a>
+    <a href="#s3">③ 学情·目标·重难点</a>
+    <a href="#s4">④ 场域与安全（红线）</a>
+    <a href="#s5">⑤ 教学流程 40 分钟</a>
+    <a href="#s6">⑥ 劳动实践任务单</a>
+    <a href="#s7">⑦ 评价量规</a>
+    <a href="#s8">⑧ 劳动清单与档案</a>
+    <a href="#s9">⑨ 资料取证台</a>
+    <a href="#s10">⑩ 合规自检与出稿</a>
+    <div class="grp">附录 · 兼职教师工具箱</div>
+    <a href="#s11">★ 非遗项目库速选</a>
+    <a href="#s12">★ 课标对照速查表</a>
+    <a href="#s13">★ 高频问题 FAQ</a>
+  </nav>
+  <div class="progress">
+    <b>备课完成度</b>
+    <div class="bar"><i id="pbar"></i></div>
+    <span id="ptxt">0 / 10 环节已填写</span>
+    <div class="dim" id="evnote" style="margin-top:6px">资料取证：0 / 0 已核实</div>
+    <div class="dim" id="ednote" style="margin-top:4px">个性化：0 处由您改写</div>
+  </div>
+  <div class="sidefoot">
+    <div id="saveTip" class="saved">—</div>
+    <button onclick="expJSON()">⬆ 备份备课（.json）</button>
+    <button onclick="document.getElementById('impf').click()">⬇ 恢复备份</button>
+    <button onclick="resetAll()">✕ 清空重备</button>
+    <input type="file" id="impf" accept=".json" style="display:none" onchange="impJSON(this)">
+    <div data-feedback="1" style="margin-top:8px"><button onclick="openFeedback()">💬 使用反馈（约 10 秒）</button></div>
+    <div style="margin-top:8px">内容自动存入本机浏览器，关机不丢。</div>
+  </div>
+</aside>
+
+<main class="main">
+  <button class="navToggle no-print" type="button" onclick="toggleNav()" aria-label="展开/收起导航">☰ 目录</button>
+  <div class="topbar no-print">
+    <span class="tag">◆ 依据《义务教育劳动课程标准（2022年版）》</span>
+    <span class="warn">⚠ 蓝底＝平台高置信生成；黄/红底＝须核实或补充后才能出稿</span>
+    <button class="btn ghost sm" onclick="window.print()">🖨 打印 / 存 PDF</button>
+  </div>
+  <h2 id="docTitle">劳动教学设计</h2>
+  <div class="sub" id="docSub">请先在第①步选择非遗主题</div>
+  <div id="app"></div>
+  <div class="foot">粤匠 · 广东非遗主题劳动备课平台　|　备课框架依据《义务教育劳动课程标准（2022年版）》　|　平台只输出高置信内容，史实与数据一律进入"取证台"由教师核实后回写</div>
+</main>
+</div>
+
+<div class="sideMask" id="sideMask" onclick="toggleNav(false)"></div>
+<div class="modal" id="modal"><div class="box" id="modalBox"></div></div>
+
+<script src="assets/js/config.js?v=20261007"></script>
+<script src="assets/js/cloud.js?v=20261007"></script>
+<script src="assets/js/telemetry.js?v=20261007"></script>
+<script src="assets/js/data.js?v=20261007"></script>
+<script src="assets/js/core.js?v=20261007"></script>
+<script src="assets/js/steps.js?v=20261007"></script>
+<script src="assets/js/app.js?v=20261007"></script>
+<script src="assets/js/track-hooks.js?v=20261007"></script>
+<script src="assets/js/consent.js?v=20261007"></script>
+<script>
+/* 网站增强：小屏侧边栏抽屉开关 */
+function toggleNav(force){
+  var side=document.querySelector('.side'), mask=document.getElementById('sideMask');
+  if(!side||!mask) return;
+  var open = (force===undefined) ? !side.classList.contains('open') : !!force;
+  side.classList.toggle('open', open);
+  mask.classList.toggle('show', open);
+}
+document.getElementById('nav').addEventListener('click', function(e){
+  if(e.target.tagName==='A' && window.matchMedia('(max-width:900px)').matches) toggleNav(false);
+});
+</script>
+</body>
+</html>

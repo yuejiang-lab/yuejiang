@@ -1,0 +1,147 @@
+/* ============================================================
+ * theme-ink.css —— 水彩岭南 · 宣纸主题
+ * 在 style.css 之后加载：只覆盖设计变量与质感，不改变任何布局，
+ * 因此备课工作台的全部功能保持原样。
+ * ============================================================ */
+
+:root{
+  /* 墨色与纸色 */
+  --ink:#2f3a42;            /* 黛瓦墨 */
+  --ink2:#5f6d75;           /* 次级文字 */
+  --line:#e8dcc6;           /* 宣纸描边 */
+  --bg:#f7f1e6;             /* 宣纸底 */
+  --paper:#fffdf8;          /* 卡片纸面 */
+
+  /* 岭南色：赭红、暖金、竹青、青灰 */
+  --brand:#b0443a;
+  --brand2:#d8a24c;
+  --brand-soft:#f8e9e2;
+  --green:#5f8a6a;
+  --green-soft:#e8f1e7;
+  --amber:#c0892e;
+  --amber-soft:#f9f0dc;
+  --blue:#4a7189;
+  --blue-soft:#e7eff3;
+
+  --radius:14px;
+  --serif:"STKaiti","KaiTi","Kaiti SC","STSong","Songti SC","SimSun",serif;
+}
+
+/* 宣纸底：水彩晕染 + 细颗粒纸纹（纯背景层，不遮挡内容） */
+body{
+  background-color:var(--bg);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23p)' opacity='0.045'/></svg>"),
+    radial-gradient(1100px 420px at 8% -6%, rgba(216,162,76,.16), rgba(216,162,76,0) 62%),
+    radial-gradient(900px 400px at 102% 0%, rgba(176,68,58,.11), rgba(176,68,58,0) 60%),
+    radial-gradient(900px 320px at 50% 110%, rgba(95,138,106,.12), rgba(95,138,106,0) 66%);
+  background-attachment:fixed,fixed,fixed,fixed;
+  color:var(--ink);
+}
+
+/* 标题用楷体，带一点水墨的呼吸感 */
+h1,h2,#docTitle,.card h3,.card h4,.logo h1,.foot{font-family:var(--serif);letter-spacing:.5px}
+.card h3{font-size:17.5px}
+#docTitle{font-size:22px}
+
+/* 纸面卡片：更柔的阴影与描边 */
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(47,58,66,.055);
+}
+.card h3 .n{
+  background:linear-gradient(135deg,var(--brand),#8f3229);
+  box-shadow:0 2px 6px rgba(176,68,58,.25);
+}
+
+/* 侧栏：宣纸渐层 */
+.side{
+  background:linear-gradient(180deg,#fffdf8 0%,#fbf5ea 100%);
+  border-right:1px solid var(--line);
+}
+.nav a.on{background:linear-gradient(135deg,var(--brand),#c05347);box-shadow:0 2px 8px rgba(176,68,58,.22)}
+.nav a:hover{background:var(--brand-soft);color:var(--brand)}
+.nav .grp{color:#a8987f}
+
+/* 印章式标识 */
+.logo .badge{
+  background:linear-gradient(135deg,var(--brand),#8f3229);
+  border:2px solid rgba(255,255,255,.6);
+  box-shadow:0 0 0 3px rgba(176,68,58,.12);
+  font-family:var(--serif);
+}
+
+/* 按钮：朱红渐层 */
+.btn{background:linear-gradient(135deg,var(--brand),#c05347);box-shadow:0 2px 8px rgba(176,68,58,.20);border:none}
+.btn.g{background:linear-gradient(135deg,var(--green),#4f7a5b);box-shadow:0 2px 8px rgba(95,138,106,.20)}
+.btn.ghost{background:var(--paper);color:var(--brand);border:1px solid rgba(176,68,58,.4);box-shadow:none}
+.btn:hover{opacity:.92}
+
+/* 表格与提示块：换成纸感配色 */
+th{background:#faf4e9;border-color:var(--line)}
+td{border-color:var(--line)}
+.hint{background:var(--blue-soft);border-left-color:var(--blue);color:#2f5570}
+.warnbox{background:var(--amber-soft);border-left-color:var(--amber);color:#7a5300}
+.okbox{background:var(--green-soft);border-left-color:var(--green);color:#3f6a4d}
+.tpl{background:#fdfaf3;border-color:var(--line)}
+.tpl.ro{background:#f8f3e8}
+pre.txt,.stepbox,.flowrow,.ev,.pcard{background:#fdfaf3;border-color:var(--line)}
+input[type=text],textarea,select{border-color:var(--line);background:var(--paper)}
+input:focus,textarea:focus,select:focus{border-color:var(--brand2);box-shadow:0 0 0 3px rgba(216,162,76,.18)}
+.tabs button.on{background:var(--ink);border-color:var(--ink)}
+.pill.r{background:#fbe6e2;color:var(--brand)}
+.progress{background:#fdfaf3;border-color:var(--line)}
+.sidefoot button{border-color:var(--line);background:var(--paper)}
+.sidefoot button:hover{border-color:var(--brand);color:var(--brand)}
+.chip{background:#f6efe2;border-color:var(--line)}
+.chip.sel{background:var(--brand-soft);border-color:rgba(176,68,58,.4);color:var(--brand)}
+.mini{border-color:var(--line);background:var(--paper)}
+.mini:hover{border-color:var(--brand2);color:var(--brand);background:var(--brand-soft)}
+.modal .box{background:var(--paper)}
+.topbar .tag{background:var(--green-soft);color:var(--green)}
+.topbar .warn{background:var(--amber-soft);color:var(--amber)}
+
+/* 朱红印章装饰 */
+.seal{
+  display:inline-grid;place-items:center;
+  width:52px;height:52px;border-radius:8px;
+  background:linear-gradient(135deg,var(--brand),#8f3229);
+  color:#fff;font-family:var(--serif);font-size:22px;
+  box-shadow:0 0 0 2px rgba(176,68,58,.18), 0 3px 10px rgba(176,68,58,.25);
+}
+
+/* 统计知情同意浮条 */
+.consentBar{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:linear-gradient(180deg,#fffdf8,#f8f1e3);
+  border-top:1px solid var(--line);
+  box-shadow:0 -6px 22px rgba(47,58,66,.10);
+  padding:14px 20px;
+}
+.cbInner{max-width:1120px;margin:0 auto;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cbTxt{flex:1;min-width:260px;font-size:13px;color:var(--ink2);line-height:1.75}
+.cbTxt b{color:var(--ink)}
+.cbBtns{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cbBtn{border:none;border-radius:10px;padding:8px 16px;font-size:13px;cursor:pointer;font-family:inherit;font-weight:600}
+.cbBtn.cbOk{background:var(--brand);color:#fff;box-shadow:0 2px 8px rgba(176,68,58,.22)}
+.cbBtn.cbNo{background:var(--paper);color:var(--ink2);border:1px solid var(--line);font-weight:400}
+.cbLink{font-size:12.5px;color:var(--blue)}
+@media(max-width:900px){
+  .consentBar{padding:12px 14px}
+  .cbInner{flex-direction:column;align-items:flex-start;gap:10px}
+}
+
+/* 返回首页 */
+.backHome{display:block;font-size:12.5px;color:var(--ink2);text-decoration:none;padding:2px 10px 10px}
+.backHome:hover{color:var(--brand)}
+
+/* 显示同意条时，为底部留出空间 */
+body.hasConsent .side{padding-bottom:130px}
+body.hasConsent .main{padding-bottom:140px}
+
+@media print{
+  body{background:#fff}
+  .consentBar{display:none!important}
+  body.hasConsent .side,body.hasConsent .main{padding-bottom:0}
+}
